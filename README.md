@@ -1,4 +1,4 @@
-# Insurance Chatbot (Korean) — Query Classifier + Agentic RAG
+# Insurance Chatbot — Query Classifier + Insurance Chatbot via LangGraph-based Corrective RAG
 
 A Korean-language insurance customer-support chatbot built around two components:
 a 26-label query classifier and a LangChain / LangGraph RAG pipeline grounded in
