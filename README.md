@@ -2,7 +2,7 @@
 
 A Korean-language insurance customer-support chatbot built around two components:
 a 26-label query classifier and a LangChain / LangGraph RAG pipeline grounded in
-the *한화 100세 암치료보장보험* (Hanwha 100-year Cancer Treatment Insurance)
+the Hanwha 100-year Cancer Treatment Insurance
 product document.
 
 The chatbot classifies each user query into a fixed taxonomy of intents (greeting,
@@ -82,13 +82,12 @@ Hugging Face login.
 ## Notes
 
 - The reference document used for RAG is the publicly available
-  [한화 100세 암치료보장보험 상품요약서](https://www.hwgeneralins.com/notice/ir/product-ing01.do).
+  [Hanwha insurance product document](https://www.hwgeneralins.com/notice/ir/product-ing01.do).
 - Chunks are labeled by the same 26-label taxonomy used for query
   classification, which lets retrieval be filtered to the matching category
   rather than relying on cosine similarity alone.
 - The LangGraph CRAG extension was added because the one-shot LangChain
-  pipeline produced incorrect answers on a few queries (e.g.
-  *"상품 종류(종)는 어떻게 나뉘나요?"*); the corrective loop fixes these.
+  pipeline produced incorrect answers on a few ambiguous queries. The corrective loop fixes these.
 - The Llama classifier uses `outlines` constrained decoding, which guarantees
   the output is a schema-valid `QueryClassification` JSON object and removes
   the parse-failure / invalid-label failure modes of free-form generation.
